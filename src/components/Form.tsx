@@ -1,5 +1,6 @@
 import { FC, useState, FormEvent } from "react";
-import { Event, Weekday } from "../App";
+import { Event, Weekday } from "../types";
+import { displayTime } from "../lib/display";
 
 interface FormProps {
     onSubmit: (e: Event) => void
@@ -13,8 +14,6 @@ export const Form: FC<FormProps> = (props) => {
     const initialValues = { name: '', day: dayOptions[0], time: timeOptions[0] }
 
     const [event, setEvent] = useState<Event>(initialValues)
-
-    const displayTime = (time: number, isAm: boolean) => `${time}.00${isAm ? 'am' : 'pm'}`
 
     function handleChange(e: FormEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value } = e.currentTarget
