@@ -4,7 +4,7 @@ import { displayTime } from "../lib/display";
 
 interface FormProps {
     onSubmit: (e: Event) => void
-    timeOptions: number[]
+    timeOptions: string[]
     dayOptions: Weekday[]
 }
 
@@ -48,7 +48,7 @@ export const Form: FC<FormProps> = (props) => {
                 <label htmlFor="day-select" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Time</label>
                 <select name="time" id="day-select" className="select  w-full" onInput={handleChange} value={event.time}>
                     {timeOptions.map((time, i) => (
-                        <option value={time}>{displayTime(time, i < 4)}</option>
+                        <option value={time}>{displayTime(+time)}</option>
                     ))}
                 </select>
             </div>

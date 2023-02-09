@@ -1,1 +1,1 @@
-export const displayTime = (time: number, isAm: boolean) => `${time}.00${isAm ? 'am' : 'pm'}`
+export const displayTime = (time: number) => `${time}.00${time > 6 && time !== 12 ? 'am' : 'pm'}`
